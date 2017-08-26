@@ -27,9 +27,9 @@
 
 
 /* We take our Names put in Array */
-var atlantaSportsNames = ["Jones", "Nixon", "Freeman", "Vick", "Bream", "Wilkins", "Tuggle", "Glavine", "Smoltz", "Lopez"]
+var atlantaSportsNames = ["Jones", "Nixon", "Freeman", "Vick", "Bream", "Wilkins", "Tuggle", "Glavine", "Smoltz", "Lopez"];
 
-var possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+/*var possibleGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];*/
 /* We take our Array and set it to index position Math.floor/random to get random number--this will give us a random position within the array. We then set it to a variable to use later.*/
 var nameToGuess = atlantaSportsNames[Math.floor(Math.random() * atlantaSportsNames.length)];
 
@@ -37,7 +37,7 @@ console.log(nameToGuess);
 
 
 
-var numberOfCharacters = ""
+var numberOfCharacters = "";
 
 for (i = 0; i < nameToGuess.length; i++) {
     numberOfCharacters += " _ "
@@ -47,5 +47,45 @@ document.getElementById("WhereGamePutsClue").innerHTML = numberOfCharacters;
 
 
 
+/*Takes user keys entered and adds them to userKeysPressed array */
+var userKeysPressed = [];
+document.onkeydown = function(event) {
+   var keyPress;
 
-/*Let's see if we can get user guess by using Variable nameToGuess and */
+   if (typeof event !== "undefined") {
+        keyPress = event.keyCode;
+   } else if (event) {
+       keyPress = event.which;
+   }
+   userKeysPressed.push(String.fromCharCode(keyPress));
+   return false; //Prevents the default action
+}
+console.log(userKeysPressed);
+
+
+
+
+//Splits and puts indivual name letters in Array to compare
+var lettersToCheck = nameToGuess;
+var wordLettersArray = [];
+function checkAnswer() {
+    for (var i = 0; i < lettersToCheck.length; i++) {
+        wordLettersArray.push(lettersToCheck.charAt(i));
+
+    }
+
+}
+checkAnswer();
+console.log(wordLettersArray);
+
+
+
+function compareUserInputToAnswer() {
+    for (var i = 0; wordLettersArray.length; i++) {
+        if wordLettersArray[i] === 
+
+    }
+
+}
+
+
